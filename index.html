@@ -15,24 +15,87 @@
         <div class="text-center container-fluid py-0">
           <h1 class="text-white bg-primary display-5 fw-bold">Weather Dashboard</h1>
         </div>
-      </div>
+    </div>
       <div class="row">
         <div class="col-sm-3">
-
-            <input type="text" class="w-100 form-control" placeholder="Sacramento" aria-label="Server">
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-primary">Primary</button>
+              
+            <h1 class="ms-2 w-100">Search for a City:</h1>
+            <input id="search-city" type="text" class="ms-2 w-100 form-control" placeholder="Search for a city" aria-label="Server">
+            <button id="search-btn"type="button" class="mt-2 p-2 ms-2 w-100 btn btn-primary">Search</button>
             <hr>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
-            <button type="button" class="mt-2 pl-2 w-100 btn btn-secondary">Secondary</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">San Francisco</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">New York</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">San Antonio</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">Austin</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">Seattle</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">Nashville</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">Miami</button>
+            <button type="button" class="mt-2 p-2 ms-2 w-100 btn btn-secondary">Pittsburgh</button>
 
         </div>
-        <div class="col-sm-9"></div>
+    
+        <div class="col-sm-9">
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div id="current-weather" class="container-fluid py-1">
+                <h3 id="title"></h3>
+                <!-- <p>Temp: </p>
+                <p>Wind: </p>
+                <p>Humidity: </p> -->
+                  
+                </div>
+              </div>
+
+              <h4>5-Day Forecast</h4>
+            <div class="row">
+  <div class="col-sm-2">
+    <div class="card border-dark">
+      <div id="dayOne" class="card-body">
+        <h5 class="card-title">11/12/2022</h5>
+        <p>Temp: </p>
+        <p>Wind: </p>
+        <p>Humidity: </p>      </div>
     </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card border-dark">
+      <div id="dayTwo"class="card-body">
+        <h5 class="card-title">11/12/2022</h5>
+        <p>Temp: </p>
+        <p>Wind: </p>
+        <p>Humidity: </p>      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card border-dark">
+      <div id="dayThree"class="card-body">
+        <h5 class="card-title">11/12/2022</h5>
+        <p>Temp: </p>
+        <p>Wind: </p>
+        <p>Humidity: </p>      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card border-dark">
+      <div id="dayFour"class="card-body">
+        <h5 class="card-title">11/12/2022</h5>
+        <p>Temp: </p>
+        <p>Wind: </p>
+        <p>Humidity: </p>      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card border-dark">
+      <div id="dayFive"class="card-body">
+        <h5 class="card-title">11/12/2022</h5>
+        <p>Temp: </p>
+        <p>Wind: </p>
+        <p>Humidity: </p>      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        
+    </div>
+    <script src="./Assets/js/script.js"></script>
 </body>
 </html>
