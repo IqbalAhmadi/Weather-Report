@@ -14,7 +14,8 @@ function getWeather (cityName) {
         currentWeather.innerHTML = `<h3 id="title">${data.name}</h3>
         <p>Temp: ${data.main.temp}</p>
         <p>Wind: ${data.wind.speed}</p>
-        <p>Humidity: ${data.main.humidity}</p>`
+        <p>Humidity: ${data.main.humidity}</p>
+        <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/>`
         var url = `https://api.openweathermap.org/data/2.5/forecast?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${key}&units=imperial`
         fetch(url)
         .then(response => response.json())
@@ -31,11 +32,12 @@ function getWeather (cityName) {
                         <p class="temp">Temp: ${fiveDay.list[i].main.temp}</p>
                         <p class="wind">Wind: ${fiveDay.list[i].wind.speed}</p>
                         <p class="humidity">Humidity: ${fiveDay.list[i].main.humidity}</p>
+                        <img src="http://openweathermap.org/img/wn/${fiveDay.list[i].weather[0].icon}@2x.png"/>
+                        
                     </div>
                 </div>`
                 card.innerHTML = content
                 fiveDayEl.appendChild(card)
-                // console.log(fiveDay)
             }
             
         })
