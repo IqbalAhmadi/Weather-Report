@@ -4,6 +4,7 @@ var currentWeather = document.querySelector('#current-weather')
 var fiveDayEl = document.querySelector('#fiveDay')
 var windEl = document.querySelector('.wind')
 var humidityEl = document.querySelector('.humidity')
+
 function checkLocalStorage() {
   const lastCity = localStorage.getItem('lastSearch')
   const buttonEl = document.createElement('button')
@@ -13,14 +14,22 @@ function checkLocalStorage() {
   console.log(lastCity)
 }
 checkLocalStorage() // runs the function on page load
-// add and event listner
+
+//!! ==== Need clarification 👇 =========== //
+// WHEN I click on a city in the search history
+// THEN I am again presented with current and future conditions for that city
+
+//! ==== End of clarification 👆 ========== //
+
 function clearHistroyDiv() {
   document.getElementById('search-history').innerHTML = ''
 }
+
 function getWeather(cityName) {
   localStorage.setItem('lastSearch', cityName)
   clearHistroyDiv() // runs the function
   checkLocalStorage()
+
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=imperial`
   fetch(apiUrl)
     .then((response) => response.json())
@@ -31,6 +40,7 @@ function getWeather(cityName) {
         <p>Wind: ${data.wind.speed}</p>
         <p>Humidity: ${data.main.humidity}</p>
         <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/>`
+
       var url = `https://api.openweathermap.org/data/2.5/forecast?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${key}&units=imperial`
       fetch(url)
         .then((response) => response.json())
@@ -40,6 +50,7 @@ function getWeather(cityName) {
             console.log(fiveDay.list[i])
             var card = document.createElement('div')
             card.classList.add('col-sm-2')
+
             var content = `
                 <div class="card border-dark">
                     <div id="dayOne" class="card-body">
