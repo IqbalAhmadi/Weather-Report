@@ -9,7 +9,11 @@ function checkLocalStorage() {
   const lastCity = localStorage.getItem('lastSearch')
   const buttonEl = document.createElement('button')
   buttonEl.textContent = lastCity
+  buttonEl.addEventListener('click', function () {
+    getWeather(lastCity)
+  })
   buttonEl.classList.add('btn')
+
   document.getElementById('search-history').appendChild(buttonEl)
   console.log(lastCity)
 }
@@ -27,10 +31,10 @@ function getWeather(cityName) {
   //!! ==== Need clarification 👇 =========== //
   // WHEN I click on a city in the search history
   // THEN I am again presented with current and future conditions for that city
-  searchBtn.addEventListener('click', (event) => {
-    var searchCity = document.querySelector('#search-history')
-    getWeather(searchCity.value)
-  })
+  // searchBtn.addEventListener('click', (event) => {
+  //   var searchCity = document.querySelector('#search-history')
+  //   getWeather(searchCity.value)
+  // })
   //! ==== End of clarification 👆 ========== //
 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=imperial`
@@ -48,6 +52,7 @@ function getWeather(cityName) {
       fetch(url)
         .then((response) => response.json())
         .then((fiveDay) => {
+          $('#fiveDay').empty()
           console.log(fiveDay.list.length)
           for (var i = 3; i < fiveDay.list.length; i += 8) {
             console.log(fiveDay.list[i])
