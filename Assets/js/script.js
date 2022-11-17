@@ -15,12 +15,6 @@ function checkLocalStorage() {
 }
 checkLocalStorage() // runs the function on page load
 
-//!! ==== Need clarification 👇 =========== //
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
-
-//! ==== End of clarification 👆 ========== //
-
 function clearHistroyDiv() {
   document.getElementById('search-history').innerHTML = ''
 }
@@ -29,6 +23,15 @@ function getWeather(cityName) {
   localStorage.setItem('lastSearch', cityName)
   clearHistroyDiv() // runs the function
   checkLocalStorage()
+
+  //!! ==== Need clarification 👇 =========== //
+  // WHEN I click on a city in the search history
+  // THEN I am again presented with current and future conditions for that city
+  searchBtn.addEventListener('click', (event) => {
+    var searchCity = document.querySelector('#search-history')
+    getWeather(searchCity.value)
+  })
+  //! ==== End of clarification 👆 ========== //
 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=imperial`
   fetch(apiUrl)
