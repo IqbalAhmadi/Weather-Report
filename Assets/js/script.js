@@ -6,7 +6,9 @@ var windEl = document.querySelector('.wind')
 var humidityEl = document.querySelector('.humidity')
 
 function checkLocalStorage() {
+  //! Need to get the array, and loop over it and need to redo from line 10 through live 21 for each city.
   const lastCity = localStorage.getItem('lastSearch')
+  // console.log(allSearches)
   const buttonEl = document.createElement('button')
   buttonEl.textContent = lastCity
   buttonEl.addEventListener('click', function () {
@@ -24,18 +26,21 @@ function clearHistroyDiv() {
 }
 
 function getWeather(cityName) {
+  const allSearches = JSON.parse(localStorage.getItem('city')) || [] // if JSON.Stringify =!
+
   localStorage.setItem('lastSearch', cityName)
+  localStorage.setItem(
+    'city', // setting it into local storage
+    JSON.stringify(
+      // it turn array into string
+      [
+        ...allSearches, // copying values into new array
+        cityName, // adding it into that array
+      ]
+    )
+  )
   clearHistroyDiv() // runs the function
   checkLocalStorage()
-
-  //!! ==== Need clarification 👇 =========== //
-  // WHEN I click on a city in the search history
-  // THEN I am again presented with current and future conditions for that city
-  // searchBtn.addEventListener('click', (event) => {
-  //   var searchCity = document.querySelector('#search-history')
-  //   getWeather(searchCity.value)
-  // })
-  //! ==== End of clarification 👆 ========== //
 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=imperial`
   fetch(apiUrl)
